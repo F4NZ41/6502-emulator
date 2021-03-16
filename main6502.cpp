@@ -10,6 +10,15 @@ struct Mem
 {
 	static constexpr u32 MAX_MEM = 1024 * 4;
 	Byte Data[MAX_MEM];
+	void Initialise() 
+	{
+
+		for (int i = 0; i < MAX_MEM; i++)
+		{
+			Data[i] = 0;
+		}
+	}
+
 };
 
 struct CPU
@@ -30,9 +39,22 @@ struct CPU
 	Byte O = 1; // Overflow, 
 	Byte N = 1;
 
-	void Reset() {
-		PC = 0x0000;
+	void Reset( Mem& memory ) {
+		PC = 0xFFFC;
 		SP = 0x0100;
+		memory.Initialise();
+	}
+
+	Byte FetchByte(u32 Cycles, ) {
+		
+	}
+
+	void Execute( Mem& memory, u32 Cycles ) {
+		while (Cycles < 0)
+		{
+			// Byte Ins = FetchByte(Cycles, );
+			Cycles--;
+		}
 		
 	}
 };
@@ -41,6 +63,7 @@ int main()
 {
 	Mem mem;
 	CPU cpu;
+	cpu.Reset( mem );
 }
 
 /*
