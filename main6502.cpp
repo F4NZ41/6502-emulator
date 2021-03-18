@@ -49,13 +49,31 @@ struct CPU
 		
 	}
 
+	void AND() {
+
+		
+
+
+
+	}
+
+
+
+	// opcode 0x000029, 2 cycles, Bytes 2
+
 	void Execute( Mem& memory, u32 Cycles ) {
 		while (Cycles < 0)
 		{
 			// Byte Ins = FetchByte(Cycles, );
+			if(A == 0) {
+				Z = 1;}
+			else{
+				Z = 1;}
+			
+			
+
 			Cycles--;
 		}
-		
 	}
 };
 
@@ -64,6 +82,7 @@ int main()
 	Mem mem;
 	CPU cpu;
 	cpu.Reset( mem );
+	cpu.Execute( mem, 2 )
 }
 
 /*
